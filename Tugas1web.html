@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KULINER KHAS NUSANTARA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fafafa;
+            height: 100vh; /* Mengatur tinggi body agar memenuhi layar */
+            overflow: hidden; /* Mencegah scroll pada body */
+        }
+
+        /* Header Judul */
+        .header {
+            background: linear-gradient(135deg, #673AB7, #9575CD); /* Gradasi ungu */
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 32px;
+            font-weight: bold;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Kontainer Utama */
+        .container {
+            display: flex;
+            height: calc(100vh - 80px); /* Mengatur tinggi kontainer utama */
+            overflow: auto; /* Mengizinkan scroll pada kontainer */
+        }
+
+        /* Samping kiri (menu) */
+        .menu {
+            width: 20%;
+            background: linear-gradient(135deg, #FFD54F, #FFB74D); /* Gradasi kuning */
+            padding: 20px;
+            color: #333;
+            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu h2 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #ff7043;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            margin-bottom: 15px;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .menu ul li:nth-child(1) {
+            background-color: #F06292; /* Warna menu untuk Rendang */
+            color: white;
+        }
+
+        .menu ul li:nth-child(2) {
+            background-color: #4FC3F7; /* Warna menu untuk Nasi Goreng */
+            color: white;
+        }
+
+        .menu ul li:nth-child(3) {
+            background-color: #81C784; /* Warna menu untuk Sate */
+            color: white;
+        }
+
+        .menu ul li:hover {
+            opacity: 0.8;
+        }
+
+        /* Tengah (konten utama) */
+        .content {
+            width: 60%;
+            padding: 20px;
+            background-color: #ffffff;
+            display: none; /* Sembunyikan konten awalnya */
+            overflow-y: auto; /* Mengizinkan scroll jika konten melebihi tinggi */
+        }
+
+        .content.active {
+            display: block; /* Tampilkan konten yang aktif */
+        }
+
+        .content h2 {
+            font-size: 28px;
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto; /* Mengatur gambar agar terpusat */
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Samping kanan (informasi tambahan) */
+        .right-panel {
+            width: 20%;
+            background: linear-gradient(135deg, #29B6F6, #0288D1);
+            padding: 20px;
+            color: white;
+            box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; /* Mengizinkan scroll jika konten melebihi tinggi */
+        }
+
+        .right-panel h3 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .right-panel ul {
+            list-style: square;
+            margin-left: 20px;
+        }
+
+        .right-panel ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Gaya untuk menyelaraskan gambar dan teks */
+        .image-text-container {
+            display: flex;
+            align-items: center; /* Sejajarkan secara vertikal */
+        }
+
+        .image-text-container img {
+            width: 350px; /* Ukuran gambar diperbesar */
+            margin-right: 20px; /* Jarak antara gambar dan teks */
+        }
+
+        .image-text-container p {
+            margin: 0; /* Menghapus margin default pada paragraf */
+        }
+    </style>
+</head>
+<body>
+    <!-- Bagian Header -->
+    <div class="header">
+        KULINER KHAS NUSANTARA
+    </div>
+
+    <!-- Bagian Kontainer Utama -->
+    <div class="container">
+        <!-- Bagian Menu -->
+        <div class="menu">
+            <h2>Pilih Makanan</h2>
+            <ul>
+                <li onclick="showContent('content1')">Rendang</li>
+                <li onclick="showContent('content2')">Nasi Goreng</li>
+                <li onclick="showContent('content3')">Sate</li>
+            </ul>
+        </div>
+
+        <!-- Bagian Konten Utama -->
+        <div id="content1" class="content active">
+            <h2 style="text-align: center;">Rendang</h2>
+            <div class="image-text-container">
+                <img src="rendang.jpg" alt="Rendang">
+                <p>Rendang adalah hidangan khas Minangkabau yang dikenal karena proses memasaknya yang memakan waktu berjam-jam. Proses memasak yang lama ini membuat bumbu rendang meresap sempurna ke dalam daging. Hidangan ini tidak hanya populer di Indonesia tetapi juga di berbagai negara di Asia Tenggara seperti Malaysia dan Singapura.</p>
+            </div>
+            <p>Rendang biasanya disajikan pada acara-acara penting seperti pernikahan, festival adat, dan perayaan hari besar. Keistimewaan dari rendang adalah kemampuannya bertahan lama tanpa bahan pengawet. Hal ini berkat penggunaan santan kental dan rempah-rempah yang memberikan cita rasa kuat dan tekstur daging yang empuk.</p>
+            <p>Salah satu cara terbaik untuk menikmati rendang adalah dengan menyajikannya dengan nasi hangat. Hidangan ini dapat dinikmati dengan pelengkap seperti sayur-sayuran segar atau sambal, memberikan keseimbangan rasa yang sempurna. Rendang juga sering digunakan dalam berbagai variasi hidangan seperti rendang vegetarian yang menggunakan bahan nabati.</p>
+        </div>
+
+        <div id="content2" class="content">
+            <h2 style="text-align: center;">Nasi Goreng</h2>
+            <div class="image-text-container">
+                <img src="nasi goreng.jpeg" alt="Nasi Goreng">
+                <p>Nasi Goreng adalah salah satu hidangan nasional Indonesia yang sangat terkenal. Setiap daerah memiliki versi nasi goreng dengan bahan dan cara memasak yang berbeda. Nasi goreng sering kali disajikan dengan tambahan telur, ayam, udang, atau bahkan daging kambing untuk memberikan variasi rasa yang menarik.</p>
+            </div>
+            <p>Dengan aromanya yang khas, nasi goreng biasanya dihidangkan sebagai sarapan atau makan malam cepat. Di banyak restoran, nasi goreng bahkan disajikan dengan pelengkap seperti kerupuk, acar, dan sambal yang menambah kenikmatan setiap suapan.</p>
+            <p>Sejarah nasi goreng dapat ditelusuri kembali ke masakan Cina, tetapi seiring berjalannya waktu, nasi goreng telah beradaptasi dengan selera lokal Indonesia. Variasi nasi goreng seperti Nasi Goreng Kampung dan Nasi Goreng Jawa telah muncul, masing-masing dengan karakteristik rasa yang unik. Tak jarang, nasi goreng juga menjadi makanan favorit bagi para wisatawan yang berkunjung ke Indonesia.</p>
+        </div>
+
+        <div id="content3" class="content">
+            <h2 style="text-align: center;">Sate</h2>
+            <div class="image-text-container">
+                <img src="sate.jpeg" alt="Sate">
+                <p>Sate adalah hidangan yang terdiri dari potongan daging kecil yang ditusuk dan dipanggang. Ada banyak jenis sate di Indonesia, seperti sate ayam, sate kambing, sate lilit, dan sate padang. Setiap jenis sate memiliki cara penyajian yang unik, biasanya dengan saus kacang atau kecap manis.</p>
+            </div>
+            <p>Sate sering disajikan sebagai hidangan utama atau camilan saat acara keluarga dan pesta. Penyajiannya yang praktis membuat sate mudah dinikmati kapan saja. Rasanya yang gurih dan kaya rempah menjadikannya salah satu hidangan yang digemari oleh wisatawan mancanegara.</p>
+            <p>Sate juga memiliki variasi yang berbeda-beda di setiap daerah. Misalnya, Sate Padang yang terkenal dengan bumbu kacangnya yang kental dan pedas, atau Sate Lilit yang menggunakan daging ikan dan dibungkus di sekitar batang serai. Hal ini menunjukkan betapa kayanya budaya kuliner Indonesia dan bagaimana setiap hidangan memiliki cerita yang unik.</p>
+        </div>
+
+        <!-- Bagian Samping Kanan -->
+        <div class="right-panel">
+            <h3>Informasi Menarik</h3>
+            <p>Berikut adalah beberapa fakta unik tentang makanan tradisional Indonesia:</p>
+            <ul>
+                <li>Rendang pernah dinobatkan sebagai makanan terlezat di dunia oleh CNN Travel.</li>
+                <li>Nasi Goreng memiliki berbagai varian di seluruh Indonesia, seperti Nasi Goreng Jawa dan Nasi Goreng Kampung.</li>
+                <li>Sate adalah salah satu hidangan yang sering muncul di acara perayaan besar.</li>
+                <li>Makanan tradisional Indonesia sangat kaya akan rempah dan cita rasa yang unik.</li>
+                <li>Sate dapat terbuat dari berbagai jenis daging, termasuk ayam, kambing, sapi, dan ikan.</li>
+                <li>Rendang telah menjadi simbol budaya Minangkabau dan diakui secara internasional.</li>
+                <li>Nasi Goreng sering kali menjadi hidangan yang diandalkan untuk menghabiskan nasi sisa.</li>
+                <li>Sate sering kali dipadukan dengan lontong atau nasi untuk menambah kenikmatan.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript untuk Konten Dinamis -->
+    <script>
+        function showContent(contentId) {
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            var selectedContent = document.getElementById(contentId);
+            selectedContent.classList.add('active');
+        }
+    </script>
+</body>
+</html>
